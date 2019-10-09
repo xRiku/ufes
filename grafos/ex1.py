@@ -46,54 +46,43 @@ def check(v1, v2, grafo):
 
         if v2 == i.name:
             i.vizinhos.add(v1)
-    
-#     grafo.vertices.vizinhos
 
 def nconexas(grafo):
     componente = 0
+    x = []
     for i in grafo.vertices:
         if i.marcado == False:
-            x = []
             componente += 1
             x = [i.name]
             prof(i, grafo, x)
-
-
     return componente 
 
     
 def prof(v, grafo, x):
     v.marcado = True
-    # print(v.name)
     for z in v.vizinhos:
         for i in grafo.vertices:
             if z == i.name:
                 if i.marcado == False:
                     x.append(i.name)
-                    prof(i,grafo, x)
-    x.sort()
-    for i in x:
-        print(i, end=',')
-    print()
-        
-
-# funcionando /////////////////////////////////////////////////////////////////////
+                    prof(i,grafo, x)               
+    if v.name == x[0]:
+        x.sort()
+        for i in x:
+            print(i, end=',')
+        print()
 
 if __name__ == '__main__':
     testes = int(input())
-    print(testes)
-    # testes = 1 # remover
     for i in range(testes):
-        print('Case #{}'.format(i+1))
+        print('Case #{}:'.format(i+1))
         Grafo = grafo()
         (vertices, arestas) = [int(x) for x in input().split()]
-        # vertices, arestas = 3, 1
-        # print('vertices: {} arestas: {}'.format(vertices, arestas))
         Grafo.complete(vertices)
         for j in range(arestas):
             (v1, v2) = input().split()
             check(v1,v2,Grafo)
-        print('{} connected components'.format(nconexas(Grafo)))
+        print('{} connected components\n'.format(nconexas(Grafo)))
 
 
         
