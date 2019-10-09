@@ -1,6 +1,6 @@
 class grafo(object):
     def __init__(self):
-        self.vertices = set()
+        self.vertices = list()
 
     def print_v(self):
         if (bool(self.vertices)):
@@ -13,10 +13,7 @@ class grafo(object):
     def complete(self, n):
         start = 97
         for i in range(n):
-            self.vertices.add(vertex(chr(97+i)))
-        
-        sorted(self,self.vertices.name)
-
+            self.vertices.append(vertex(chr(97+i)))
 
 
 class vertex(object):
@@ -38,41 +35,65 @@ def checkin(vertex, grafo):
 
 def check(v1, v2, grafo):
     if not checkin(v1,grafo):
-        grafo.vertices.add(vertex(v1))
-        for i in grafo.vertices:
-            if v1 == i.name:
-                i.vizinhos.add(v2)
-    
+        grafo.vertices.append(vertex(v1))
+
     if not checkin(v2,grafo):
-        grafo.vertices.add(vertex(v2))
-        for i in grafo.vertices:
-            if v2 == i.name:
-                i.vizinhos.add(v1)
+        grafo.vertices.append(vertex(v2))
+
+    for i in grafo.vertices:
+        if v1 == i.name:
+            i.vizinhos.add(v2)
+
+        if v2 == i.name:
+            i.vizinhos.add(v1)
     
 #     grafo.vertices.vizinhos
 
-# def nconexas():
-#     for i in grafos:
+def nconexas(grafo):
+    componente = 0
+    for i in grafo.vertices:
+        if i.marcado == False:
+            x = []
+            componente += 1
+            x = [i.name]
+            prof(i, grafo, x)
 
-# if __name__ == '__main__':
-#     # testes = int(input())
-#     # print(testes)
-#     testes = 1
-#     for i in range(testes):
-#         grafo = grafo()
-#         print(grafo.vertices)
-#         # (vertices, arestas) = [int(x) for x in input().split()]
-#         vertices, arestas = 3, 1
-#         print('vertices: {} arestas: {}'.format(vertices, arestas))
-#         for j in range(arestas):
-#             (v1, v2) = input().split()
-#             check(v1,v2,grafo)
 
-#         grafo.print_v()
+    return componente 
+
+    
+def prof(v, grafo, x):
+    v.marcado = True
+    # print(v.name)
+    for z in v.vizinhos:
+        for i in grafo.vertices:
+            if z == i.name:
+                if i.marcado == False:
+                    x.append(i.name)
+                    prof(i,grafo, x)
+    x.sort()
+    for i in x:
+        print(i, end=',')
+    print()
+        
+
+# funcionando /////////////////////////////////////////////////////////////////////
+
+if __name__ == '__main__':
+    testes = int(input())
+    print(testes)
+    # testes = 1 # remover
+    for i in range(testes):
+        print('Case #{}'.format(i+1))
+        Grafo = grafo()
+        (vertices, arestas) = [int(x) for x in input().split()]
+        # vertices, arestas = 3, 1
+        # print('vertices: {} arestas: {}'.format(vertices, arestas))
+        Grafo.complete(vertices)
+        for j in range(arestas):
+            (v1, v2) = input().split()
+            check(v1,v2,Grafo)
+        print('{} connected components'.format(nconexas(Grafo)))
 
 
         
-
-
-
-    
