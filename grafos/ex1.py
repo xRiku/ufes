@@ -13,7 +13,7 @@ class grafo(object):
     def complete(self, n):
         start = 97
         for i in range(n):
-            self.vertices.append(vertex(chr(97+i)))
+            self.vertices.append(vertex(chr(start+i)))
 
 
 class vertex(object):
@@ -56,7 +56,6 @@ def nconexas(grafo):
             x = [i.name]
             prof(i, grafo, x)
     return componente 
-
     
 def prof(v, grafo, x):
     v.marcado = True
