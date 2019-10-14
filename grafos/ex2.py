@@ -37,7 +37,6 @@ def checkin(vertex, grafo):
     for i in grafo.vertices:
         if vertex == i.name:
             return True
-
     return False 
 
 def check(v1, v2, peso, grafo):
@@ -54,7 +53,46 @@ def check(v1, v2, peso, grafo):
         if v2 == i.name:
             i.vizinhos.add((v1, peso))
 
-    
+def customin(Grafo, origem, destino):
+    custosf = list()
+    for i in Grafo.vertices:
+        if i.name == origem:
+            y = i
+            y.marcado = True
+            Grafo.vertices.pop(Grafo.vertices.index(i))
+            Grafo.vertices.insert(0,y)
+    print()
+    Grafo.print_v()
+    for i in Grafo.vertices[0].vizinhos:
+        if i[0] == destino - 1:
+            custo = i[1]
+    custosf.append(custo)
+    count = 0
+    # while not Grafo.isfechado():
+    #     for i in Grafo.vertices[count].vizinhos:
+    #         for j in Grafo.vertices:
+    #             if i[0] == j.name:
+    #                 if j.marcado == False: #condicao para ocorrer
+    #     z = min(Grafo.vertices[count].vizinhos, key = lambda t:t[1])
+    #     for i in Grafo.vertices:
+    #         if i.name == z[0] and not i.marcado:
+    #             custo = 
+    #     count += 1
+
+    # custo = min(custosf)
+    # return custo
+
+def intrajeto(Grafo, vertice, destino):
+    if vertice < destino - 1:
+        return True
+    else:
+        return False
+        
+def fix(Grafo, destino):
+    for i in Grafo.vertices:
+        i.vizinhos = [i.vizinhos.remove(x) for x,y in i.vizinhos if y < destino - 1]
+
+
 
 
 if __name__ == '__main__':
@@ -68,6 +106,9 @@ if __name__ == '__main__':
             U, V, P = [int(i) for i in input().split()]
             check(U, V, P, Grafo)
         Grafo.print_v()
+        fix(Grafo, C)
+        Grafo.print_v()
+        customin(Grafo, K, C)
         N, M, C, K = [int(i) for i in input().split()]
         y = N, M, C, K
 
