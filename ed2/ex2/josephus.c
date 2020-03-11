@@ -47,8 +47,8 @@ void setLeader(List *l, int M){
     Node *p = l->head;
     Node *link = p;
     for (; l->length != 1; p = p->next){
-        if (counter == 4){
-            printf("%d\n", p->numb);
+        if (counter == M-1){
+            // printf("%d\n", p->numb);
             removeElement(l, p, link);
             counter = 0;
         } else {
