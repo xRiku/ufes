@@ -4,18 +4,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct{
-
-    struct Node *next;
+typedef struct n{
+    int numb;
+    struct n *next;
 } Node;
 
 typedef struct{
-    Node *head, *tail;
+    Node *head;
+    Node *tail;
     int length;
 } List;
 
 List* createList();
 
+void fillList(List *l, int N);
+
+void appendList(List *l);
+
+void selectLeader(List *l, int M);
+
+void printList(List *l);
 
 void freeList(List *l);
 

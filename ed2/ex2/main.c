@@ -5,7 +5,7 @@ int main(int argc, char **argv){
     int M = atoi(argv[2]);
     printf("%d %d\n", N, M);
     List *l = createList();
-    if (l->head == NULL){
-        printf("Pelo menos isso\n");
-    }
+    fillList(l, N);
+    printList(l);
+    freeList(l);
 }
