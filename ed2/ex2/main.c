@@ -6,6 +6,7 @@ int main(int argc, char **argv){
     printf("%d %d\n", N, M);
     List *l = createList();
     fillList(l, N);
+    setLeader(l,M);
     printList(l);
     freeList(l);
 }

@@ -21,7 +21,9 @@ void fillList(List *l, int N);
 
 void appendList(List *l);
 
-void selectLeader(List *l, int M);
+void setLeader(List *l, int M);
+
+void removeElement(List *l, Node *dead, Node *link);
 
 void printList(List *l);
 

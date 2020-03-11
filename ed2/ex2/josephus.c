@@ -41,19 +41,49 @@ void appendList(List *l){
     }
 }
 
-void selectLeader(List *l, int M){
-
+void setLeader(List *l, int M){
+    int counter = 0;
+    Node *p = l->head;
+    Node *link = p;
+    Node* dead;
+    for (; l->length != 1; p = p->next){
+        if (counter == 4){
+            dead = p;
+            p = p->next;
+            printf("[[%d\n", p->numb);
+            removeElement(l, p, link);
+            printf("%d]]\n", p->numb);
+            counter = 0;
+        } else {
+            counter++;
+            link = p;
+            p = p->next;
+        }
+    }
 }
 
-void removeElement(List *l, int n){
-    Node *p = l->head;
-    Node *v = p;
-    Node *b = v;
-    for (int i = 0; i < l; i++){
-        if (l->head == n){
-            l->head = l->head->next;
-            l->tail = l->head;
-            free(p);
+void removeElement(List *l, Node *dead, Node *link){
+    if (l->head == dead){
+        l->head = l->head->next;
+        l->tail->next = l->head;
+        free(dead);
+        dead = link->next;
+        l->length--;
+        return;
+    } else {
+        if (dead == l->tail){
+            l->tail = link;
+            l->tail->next = l->head;
+            free(dead);
+            dead = dead->next;
+            l->length--;
+            return; 
+        } else{
+            link->next = dead->next;
+            free(dead);
+            dead = link->next;
+            l->length--;
+            return;
         }
     }
 }
