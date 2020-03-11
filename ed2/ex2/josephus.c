@@ -33,6 +33,7 @@ void appendList(List *l){
         l->length++;
     } else{
         int temp = l->tail->numb;
+        l->tail->next = NULL;
         l->tail->next = malloc(sizeof(Node));
         l->tail = l->tail->next;
         l->tail->numb = temp + 1;
@@ -45,19 +46,14 @@ void setLeader(List *l, int M){
     int counter = 0;
     Node *p = l->head;
     Node *link = p;
-    Node* dead;
     for (; l->length != 1; p = p->next){
         if (counter == 4){
-            dead = p;
-            p = p->next;
-            printf("[[%d\n", p->numb);
+            printf("%d\n", p->numb);
             removeElement(l, p, link);
-            printf("%d]]\n", p->numb);
             counter = 0;
         } else {
             counter++;
             link = p;
-            p = p->next;
         }
     }
 }
