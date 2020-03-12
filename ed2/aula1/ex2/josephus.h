@@ -4,16 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct n{
-    int numb;
-    struct n *next;
-} Node;
+typedef struct node Node;
 
-typedef struct{
-    Node *head;
-    Node *tail;
-    int length;
-} List;
+typedef struct list List;
 
 List* createList();
 

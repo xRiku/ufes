@@ -1,4 +1,4 @@
-all: link clean run
+all: link clean
 
 
 run:

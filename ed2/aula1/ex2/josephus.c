@@ -1,5 +1,16 @@
 #include "josephus.h"
 
+struct node{
+    int numb;
+    struct node *next;
+};
+
+struct list{
+    Node *head;
+    Node *tail;
+    int length;
+};
+
 List * createList(){
     List *l = malloc(sizeof(List));
     l->head = l->tail = NULL;
