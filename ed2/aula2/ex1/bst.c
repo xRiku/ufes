@@ -19,6 +19,7 @@ void insertNode(BST *root, Node *node){
     if (root != NULL){
         if (*root == NULL){
             *root = node;
+            return;
         }
         while(p->l != NULL || p->r != NULL){
             if (node->key < p->key){
@@ -26,19 +27,21 @@ void insertNode(BST *root, Node *node){
                     break;
                 }
                 p = p->l;
-            }else{
-                if (node->key > p->key){
-                    if (p->r == NULL){
-                        break;
-                    }
-                    p = p->r;
+            }else if (node->key > p->key){
+                if (p->r == NULL){
+                    break;
                 }
+                    p = p->r;
+            }else{
+                return;
             }
         }
         if (node-> key < p->key){
             p->l = node;
         } else if (node->key > p->key){
             p->r = node;
+        }else{
+            return;
         }
     }
 }
@@ -52,10 +55,13 @@ Node * createNode(int key){
 }
 
 void deleteTree(BST *root){
-    if( root = NULL){
-        
+    if ((*root)->l != NULL){
+        deleteTree(&((*root)->l)); 
     }
-    free(root);
+    if((*root)->r != NULL){
+        deleteTree((&(*root)->r));
+    }
+    free(*root);
 }
 
 void printInOrder(BST *root) {
