@@ -55,11 +55,16 @@ Node * createNode(int key){
 }
 
 void deleteTree(BST *root){
+    deleteNode(root);
+    free(root);
+}
+
+void deleteNode(BST *root){
     if ((*root)->l != NULL){
-        deleteTree(&((*root)->l)); 
+        deleteNode(&((*root)->l)); 
     }
     if((*root)->r != NULL){
-        deleteTree((&(*root)->r));
+        deleteNode((&(*root)->r));
     }
     free(*root);
 }
@@ -75,65 +80,3 @@ void printInOrder(BST *root) {
         }
     }
 } 
-
-
-
-
-/* int insere_ArvBin(ArvBin* raiz, int valor)
-{
-    if (raiz != NULL)
-    {
-        tNo *novo = malloc(sizeof(tNo));
-        novo->esq = NULL;
-        novo->dir = NULL;
-        novo->info = valor;
-        tNo *aux = (*raiz);
-
-        if ((*raiz) == NULL)
-        {
-            (*raiz) = novo;
-            return 1;
-        }
-
-        while (aux->esq != NULL || aux->dir != NULL)
-        {
-            if (valor < aux->info)
-            {
-                if (aux->esq == NULL)
-                {
-                    break;
-                }
-                aux = aux->esq;
-            }
-            else if (valor > aux->info)
-            {
-                if (aux->dir == NULL)
-                {
-                    break;
-                }
-                aux = aux->dir;
-            }
-            else
-            {
-                return 0; // Valor já presente na árvore
-            }
-
-        }
-
-        if (valor < aux->info)
-        {
-            aux->esq = novo;
-            return 1;
-        }
-        else if (valor > aux->info)
-        {
-            aux->dir = novo;
-            return 1;
-        }
-
-    }
-    else
-    {
-        return 0;
-    }
-} */

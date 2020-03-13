@@ -18,4 +18,6 @@ void printInOrder(BST *n);
 
 void deleteTree(BST *root);
 
+void deleteNode(BST *root);
+
 #endif
