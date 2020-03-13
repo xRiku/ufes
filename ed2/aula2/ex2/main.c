@@ -10,7 +10,7 @@ int main(int argc, char **argv){
         r = rand()%1000;
         insertNode(root, createNode(r));
     }
-    // printf("[%d]\n", treeHeight(root));
-    printInOrder(root);
+    printf("[%d]\n", treeHeight(root));
+    // printInOrder(root);
     deleteTree(root);
 }
