@@ -7,10 +7,10 @@ int main(int argc, char **argv){
     int r = rand(); // returns a pseudo-random integer between 0 and RAND_MAX
     BST * root = createTree();
     for (int i = 0; i < atoi(argv[1]); i++){
-        r = rand()%1000;
+        r = rand();
         insertNode(root, createNode(r));
     }
-    printf("[%d]\n", treeHeight(root));
+    printf("%d\n", treeHeight(root));
     // printInOrder(root);
     deleteTree(root);
 }
