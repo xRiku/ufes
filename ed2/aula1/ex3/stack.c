@@ -18,7 +18,8 @@ Stack * createStack(){
 
 void printStack(Stack *s){
     Element *e = s->head;
-    for (int i = 0; i < s->head; i++){
+    for (int i = 0; i < s->height; i++){
+        printf("%c\n", e->item);
         e = e->next;
     }
 }
