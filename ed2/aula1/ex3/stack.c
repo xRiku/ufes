@@ -32,7 +32,6 @@ void push(Stack *s, void *item){
         s->head = e;
     }
     s->height++;
-    // printStack(s);
 }
 
 void pop(Stack *s){
@@ -55,4 +54,27 @@ void printStack(Stack *s){
 }
 
 void deleteStack(Stack *s){
+    if (s->height == 0){
+        free(s);
+        return;
+    }else{
+        while(s->height != 0){
+            pop(s);
+        }
+        free(s);
+        return;
+    }
+}
+
+int isSymbol(char c){
+    switch (c){
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case ')':
+            return 1;
+        default:
+            return 0;    
+    }
 }

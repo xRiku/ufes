@@ -21,6 +21,8 @@ void printStack();
 
 void deleteStack(Stack *s);
 
+int isSymbol(char c);
+
 #endif
 
 
