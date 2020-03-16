@@ -11,24 +11,16 @@ typedef struct stack Stack;
 
 Stack * createStack();
 
-void pushChar(Stack *s, char c){
-    Element *e = s->head;
-    if (s->head == NULL){
-        s->head = malloc(sizeof(Element));
-        s->height++;
-        s->head->item = c;
-        s->head->next = NULL;
-    } else{
-        e->next = malloc(sizeof(Element));
-        s->height++;
-        s->head = e->next;
-        s->head->item = c;
-        s->head->next = NULL;
-    }
+Element *createElement(void *item);
 
-}
+void push(Stack *s, void *c);
+
+void pop(Stack *s);
 
 void printStack();
 
+void deleteStack(Stack *s);
+
 #endif
+
 

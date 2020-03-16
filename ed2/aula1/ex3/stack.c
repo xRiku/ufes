@@ -16,10 +16,43 @@ Stack * createStack(){
     s->head = NULL;
 }
 
+Element *createElement(void *item){
+    Element *e = malloc(sizeof(Element));
+    e->item = item;
+    return e;
+}
+
+void push(Stack *s, void *item){
+    if (s->head == NULL){
+        s->head = createElement(item);
+        s->head->next = NULL;
+    } else{
+        Element *e = createElement(item);
+        e->next = s->head;
+        s->head = e;
+    }
+    s->height++;
+    // printStack(s);
+}
+
+void pop(Stack *s){
+    Element *e = s->head;
+    s->head = s->head->next;
+    free(e);
+    s->height--;
+}
+
+
 void printStack(Stack *s){
     Element *e = s->head;
     for (int i = 0; i < s->height; i++){
-        printf("%c\n", e->item);
+        char *n = e->item;
+        printf("%c ", *n);
         e = e->next;
     }
+    putchar('\n');
+    printf("Altura %d\n", s->height);
+}
+
+void deleteStack(Stack *s){
 }
