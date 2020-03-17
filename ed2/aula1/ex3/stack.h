@@ -15,11 +15,13 @@ Element *createElement(void *item, int id);
 
 void push(Stack *s, void *item, int id);
 
-void pop(Stack *s);
+void * pop(Stack *s);
 
 void printStack();
 
 void deleteStack(Stack *s);
+
+int getHeight(Stack *s);
 
 int isSymbol(char c);
 

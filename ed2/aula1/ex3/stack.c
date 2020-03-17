@@ -25,22 +25,52 @@ Element *createElement(void *item, int id){
 }
 
 void push(Stack *s, void *item, int id){
+    double *d;
+    if (id == 1){
+        d = malloc(sizeof(double));
+        double *d2 = item;
+        *d = *d2;
+    }
+    char *c;
+    if (id == 2){
+        c = malloc(sizeof(char));
+        char *c2 = item;
+        *c = *c2;
+    }
     if (s->head == NULL){
-        s->head = createElement(item, id);
+        if (id == 1){
+            s->head = createElement(d, id);
+        }
+        if (id == 2){
+            s->head = createElement(c, id);
+        }
         s->head->next = NULL;
     } else{
-        Element *e = createElement(item, id);
+        Element *e = NULL;
+        if (id == 1){
+            e = createElement(d, id);
+        }
+        if (id == 2){
+            e = createElement(c, id);
+        }
+        // Element *e = createElement(item, id);
         e->next = s->head;
         s->head = e;
     }
     s->height++;
 }
 
-void pop(Stack *s){
+void * pop(Stack *s){
     Element *e = s->head;
     s->head = s->head->next;
-    free(e);
     s->height--;
+    void *ret = e->item;
+    free(e);
+    return ret;
+}
+
+int getHeight(Stack *s){
+    return s->height;
 }
 
 
@@ -62,7 +92,6 @@ void printStack(Stack *s){
         e = e->next;
     }
     putchar('\n');
-    printf("Altura %d\n", s->height);
 }
 
 void deleteStack(Stack *s){
@@ -84,7 +113,6 @@ int isSymbol(char c){
         case '-':
         case '*':
         case '/':
-        case ')':
             return 1;
         default:
             return 0;    
