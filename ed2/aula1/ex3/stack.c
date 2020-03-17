@@ -1,6 +1,7 @@
 #include "stack.h"
 
 struct element{
+    int id;
     void *item;
     struct element *next;
 };
@@ -16,18 +17,19 @@ Stack * createStack(){
     s->head = NULL;
 }
 
-Element *createElement(void *item){
+Element *createElement(void *item, int id){
     Element *e = malloc(sizeof(Element));
     e->item = item;
+    e->id = id;
     return e;
 }
 
-void push(Stack *s, void *item){
+void push(Stack *s, void *item, int id){
     if (s->head == NULL){
-        s->head = createElement(item);
+        s->head = createElement(item, id);
         s->head->next = NULL;
     } else{
-        Element *e = createElement(item);
+        Element *e = createElement(item, id);
         e->next = s->head;
         s->head = e;
     }
@@ -44,9 +46,19 @@ void pop(Stack *s){
 
 void printStack(Stack *s){
     Element *e = s->head;
+    double *d;
+    char *n;
     for (int i = 0; i < s->height; i++){
-        char *n = e->item;
-        printf("%c ", *n);
+        switch(e->id){
+            case 1:
+                d = e->item;
+                printf("%lf ", *d);
+                break;
+            case 2:
+                n = e->item;
+                printf("%c ", *n);
+                break;
+        }
         e = e->next;
     }
     putchar('\n');

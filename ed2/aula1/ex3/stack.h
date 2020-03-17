@@ -11,9 +11,9 @@ typedef struct stack Stack;
 
 Stack * createStack();
 
-Element *createElement(void *item);
+Element *createElement(void *item, int id);
 
-void push(Stack *s, void *c);
+void push(Stack *s, void *item, int id);
 
 void pop(Stack *s);
 
