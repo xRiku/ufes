@@ -59,8 +59,26 @@ void setLeader(List *l, int M){
     Node *link = p;
     for (; l->length != 1; p = p->next){
         if (counter == M-1){
-            // printf("%d\n", p->numb);
-            removeElement(l, p, link);
+            if (p == l->head){
+                l->head = l->head->next;
+                l->tail->next = l->head;
+                free(p);
+                p = l->tail;
+                l->length--;
+            } else {
+                if (p == l->tail){
+                    l->tail = link;
+                    l->tail->next = l->head;
+                    free(p);
+                    p = l->tail;
+                    l->length--;
+                } else{
+                    link->next = p->next;
+                    free(p);
+                    p = link;
+                    l->length--;
+                }
+            }
             counter = 0;
         } else {
             counter++;
@@ -69,36 +87,10 @@ void setLeader(List *l, int M){
     }
 }
 
-void removeElement(List *l, Node *dead, Node *link){
-    if (l->head == dead){
-        l->head = l->head->next;
-        l->tail->next = l->head;
-        free(dead);
-        dead = link->next;
-        l->length--;
-        return;
-    } else {
-        if (dead == l->tail){
-            l->tail = link;
-            l->tail->next = l->head;
-            free(dead);
-            dead = dead->next;
-            l->length--;
-            return; 
-        } else{
-            link->next = dead->next;
-            free(dead);
-            dead = link->next;
-            l->length--;
-            return;
-        }
-    }
-}
-
 void printList(List *l){
     Node *p = l->head;
     for (int i = 0; i < l->length; i++){
-        printf("Node \t%d\n", p->numb);
+        printf("%d\n", p->numb);
         p = p->next;
     }
 }

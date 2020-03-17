@@ -16,8 +16,6 @@ void appendList(List *l);
 
 void setLeader(List *l, int M);
 
-void removeElement(List *l, Node *dead, Node *link);
-
 void printList(List *l);
 
 void freeList(List *l);
