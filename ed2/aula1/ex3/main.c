@@ -6,7 +6,6 @@
 int main (int argc, char** argv){
     Stack *sc = createStack();
     Stack *sd = createStack();
-    // Stack *sd = createStack();
     double op;
     double *d = malloc(sizeof(double)*(argc-1));
     for (int i = 0; i < argc - 1; i++){
@@ -36,6 +35,9 @@ int main (int argc, char** argv){
                     op = *b / *a;
                     break;
             } 
+            free(a);
+            free(b);
+            free(c);
             push(sd, &op, DOUBLE);
         }
     }

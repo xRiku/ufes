@@ -10,6 +10,5 @@ stack.o: stack.c stack.h
 main.o: main.c stack.h
 	gcc -c main.c
 
-
 clean:
 	rm *.o 

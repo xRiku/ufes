@@ -53,7 +53,6 @@ void push(Stack *s, void *item, int id){
         if (id == 2){
             e = createElement(c, id);
         }
-        // Element *e = createElement(item, id);
         e->next = s->head;
         s->head = e;
     }
@@ -82,7 +81,7 @@ void printStack(Stack *s){
         switch(e->id){
             case 1:
                 d = e->item;
-                printf("%lf ", *d);
+                printf("%.2lf ", *d);
                 break;
             case 2:
                 n = e->item;
@@ -100,7 +99,7 @@ void deleteStack(Stack *s){
         return;
     }else{
         while(s->height != 0){
-            pop(s);
+            free(pop(s));
         }
         free(s);
         return;
