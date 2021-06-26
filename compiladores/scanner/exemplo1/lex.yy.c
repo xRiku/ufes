@@ -724,33 +724,33 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 3 "basic.l"
-{ ECHO; printf(" -> Rule 1\n"); }
+{ ECHO; printf(" -> Rule 1"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 4 "basic.l"
-{ ECHO; printf(" -> Rule 2\n"); }
+{ ECHO; printf(" -> Rule 2"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 5 "basic.l"
-{ ECHO; printf(" -> Rule 3\n"); }
+{ ECHO; printf(" -> Rule 3"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 6 "basic.l"
-{ ECHO; printf(" -> Rule 4\n"); }
+{ ECHO; printf(" -> Rule 4"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 7 "basic.l"
-{ ECHO; printf(" -> Not recognised! \n"); }
+{ ECHO; printf(" -> Not recognised!"); }
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
 #line 8 "basic.l"
-{ ECHO; printf("Next input please => "); }
+{ ECHO; printf("Next input please =>"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
