@@ -23,11 +23,13 @@ write           { printf("%d: %s -> %s\n", yylineno, yytext, "WRITE"); }
 "+"             { printf("%d: %s -> %s\n", yylineno, yytext, "PLUS"); }
 "-"             { printf("%d: %s -> %s\n", yylineno, yytext, "MINUS"); }
 "*"             { printf("%d: %s -> %s\n", yylineno, yytext, "TIMES"); }
-"/"             { printf("%d: %s -> %s\n", yylineno, yytext, "DIV"); }
+"/"             { printf("%d: %s -> %s\n", yylineno, yytext, "OVER"); }
 ";"             { printf("%d: %s -> %s\n", yylineno, yytext, "SEMI"); }
 ":="            { printf("%d: %s -> %s\n", yylineno, yytext, "ASSIGN"); }
 "="             { printf("%d: %s -> %s\n", yylineno, yytext, "EQ"); }
 "<"             { printf("%d: %s -> %s\n", yylineno, yytext, "LT"); }
+"("             { printf("%d: %s -> %s\n", yylineno, yytext, "LPAR"); }
+")"             { printf("%d: %s -> %s\n", yylineno, yytext, "RPAR"); }
 [a-zA-Z][a-zA-Z0-9]*  { printf("%d: %s -> %s\n", yylineno, yytext, "ID"); }
 [0-9]+.[0-9]+   { printf("%d: %s -> %s\n", yylineno, yytext, "REAL_VAL"); }
 [0-9]+          { printf("%d: %s -> %s\n", yylineno, yytext, "INT_VAL"); }
