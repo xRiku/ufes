@@ -441,10 +441,10 @@ static const flex_int16_t yy_base[97] =
        76,   85,   72,   18,   76,   85,   71,   63,  109,   40,
        88,   87,  109,    0,   75,   68,   64,   75,   68,    0,
        60,   63,   28,   60,   69,   55,   55,   56,   61,   47,
-       46,   71,   70,   56,   54,   58,    0,   46,    0,   54,
-       30,   55,   50,   46,   52,   47,    0,   38,   42,    0,
-        0,   48,   37,    0,    0,   49,   38,    0,    0,   39,
-       42,    0,    0,   42,   24,   32,    0,    0,   27,    0,
+      109,   72,   71,   57,   55,   59,    0,   47,    0,   55,
+       30,   56,   51,   47,   53,   48,    0,   39,   43,    0,
+        0,   49,   38,    0,    0,   50,   39,    0,    0,   40,
+       44,    0,    0,   42,   24,   32,    0,    0,   27,    0,
         0,    0,  109,   55,   47,   58
 
     } ;
@@ -456,7 +456,7 @@ static const flex_int16_t yy_def[97] =
        95,   95,   95,   95,   95,   95,   95,   96,   93,   93,
        93,   94,   93,   95,   95,   95,   95,   95,   95,   95,
        95,   95,   95,   95,   95,   95,   95,   95,   95,   96,
-       96,   93,   94,   95,   95,   95,   95,   95,   95,   95,
+       93,   93,   94,   95,   95,   95,   95,   95,   95,   95,
        95,   95,   95,   95,   95,   95,   95,   95,   95,   95,
        95,   95,   95,   95,   95,   95,   95,   95,   95,   95,
        95,   95,   95,   95,   95,   95,   95,   95,   95,   95,
@@ -471,10 +471,10 @@ static const flex_int16_t yy_nxt[145] =
        16,   20,   16,   16,   16,   16,   21,   22,   23,   24,
        25,   26,   27,   28,    4,   29,   35,   37,   45,   38,
        30,   40,   61,   29,   36,   46,   74,   41,   30,   34,
-       92,   91,   75,   90,   62,   31,   89,   31,   50,   88,
-       50,   87,   86,   85,   84,   83,   82,   81,   80,   79,
-       78,   77,   76,   73,   72,   71,   70,   69,   53,   52,
-       51,   51,   68,   67,   66,   65,   64,   63,   60,   59,
+       92,   91,   75,   90,   62,   31,   89,   31,   50,   50,
+       50,   88,   87,   86,   85,   84,   83,   82,   81,   80,
+       79,   78,   77,   76,   73,   72,   71,   70,   69,   53,
+       52,   51,   68,   67,   66,   65,   64,   63,   60,   59,
        58,   57,   56,   55,   54,   53,   52,   51,   49,   48,
 
        47,   44,   43,   42,   39,   33,   32,   93,    3,   93,
@@ -491,10 +491,10 @@ static const flex_int16_t yy_chk[145] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    6,   17,   18,   24,   18,
         6,   20,   43,   30,   17,   24,   61,   20,   30,   95,
-       89,   86,   61,   85,   43,   94,   84,   94,   96,   81,
-       96,   80,   77,   76,   73,   72,   69,   68,   66,   65,
-       64,   63,   62,   60,   58,   56,   55,   54,   53,   52,
-       51,   50,   49,   48,   47,   46,   45,   44,   42,   41,
+       89,   86,   61,   85,   43,   94,   84,   94,   96,   96,
+       96,   81,   80,   77,   76,   73,   72,   69,   68,   66,
+       65,   64,   63,   62,   60,   58,   56,   55,   54,   53,
+       52,   50,   49,   48,   47,   46,   45,   44,   42,   41,
        39,   38,   37,   36,   35,   32,   31,   28,   27,   26,
 
        25,   23,   22,   21,   19,   12,   11,    3,   93,   93,
@@ -507,7 +507,7 @@ static const flex_int16_t yy_chk[145] =
 /* Table of booleans, true if rule could match eol. */
 static const flex_int32_t yy_rule_can_match_eol[33] =
     {   0,
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     };
 
 static yy_state_type yy_last_accepting_state;
@@ -744,7 +744,8 @@ YY_DECL
 	{
 #line 2 "scanner.l"
 
-#line 748 "lex.yy.c"
+
+#line 749 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -812,167 +813,168 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-YY_RULE_SETUP
-#line 3 "scanner.l"
-{;}
-	YY_BREAK
-case 2:
-/* rule 2 can match eol */
+/* rule 1 can match eol */
 YY_RULE_SETUP
 #line 4 "scanner.l"
 {}
 	YY_BREAK
-case 3:
+case 2:
+/* rule 2 can match eol */
 YY_RULE_SETUP
 #line 5 "scanner.l"
+{}
+	YY_BREAK
+case 3:
+YY_RULE_SETUP
+#line 6 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "BEGIN"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 6 "scanner.l"
+#line 7 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "BOOL"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 7 "scanner.l"
+#line 8 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "ELSE"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 8 "scanner.l"
+#line 9 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "END"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 9 "scanner.l"
+#line 10 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "FALSE"); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 10 "scanner.l"
+#line 11 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "IF"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 11 "scanner.l"
+#line 12 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "INT"); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 12 "scanner.l"
+#line 13 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "PROGRAM"); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 13 "scanner.l"
+#line 14 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "READ"); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 14 "scanner.l"
+#line 15 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "REAL"); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 15 "scanner.l"
+#line 16 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "REPEAT"); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 16 "scanner.l"
+#line 17 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "STRING"); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 17 "scanner.l"
+#line 18 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "THEN"); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 18 "scanner.l"
+#line 19 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "TRUE"); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 19 "scanner.l"
+#line 20 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "UNTIL"); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 20 "scanner.l"
+#line 21 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "VAR"); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 21 "scanner.l"
+#line 22 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "WRITE"); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 22 "scanner.l"
+#line 23 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "PLUS"); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 23 "scanner.l"
+#line 24 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "MINUS"); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 24 "scanner.l"
+#line 25 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "TIMES"); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 25 "scanner.l"
+#line 26 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "DIV"); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 26 "scanner.l"
+#line 27 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "SEMI"); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 27 "scanner.l"
+#line 28 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "ASSIGN"); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 28 "scanner.l"
+#line 29 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "EQ"); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 29 "scanner.l"
+#line 30 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "LT"); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 30 "scanner.l"
+#line 31 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "ID"); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 31 "scanner.l"
+#line 32 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "REAL_VAL"); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 32 "scanner.l"
+#line 33 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "INT_VAL"); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 33 "scanner.l"
+#line 34 "scanner.l"
 { printf("%d: %s -> %s\n", yylineno, yytext, "STR_VAL"); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 36 "scanner.l"
+#line 37 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 976 "lex.yy.c"
+#line 978 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1989,5 +1991,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 36 "scanner.l"
+#line 37 "scanner.l"
 
