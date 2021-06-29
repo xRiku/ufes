@@ -31,7 +31,7 @@ write           { printf("%d: %s -> %s\n", yylineno, yytext, "WRITE"); }
 [a-zA-Z][a-zA-Z0-9]*  { printf("%d: %s -> %s\n", yylineno, yytext, "ID"); }
 [0-9]+.[0-9]+   { printf("%d: %s -> %s\n", yylineno, yytext, "REAL_VAL"); }
 [0-9]+          { printf("%d: %s -> %s\n", yylineno, yytext, "INT_VAL"); }
-\"[0-9]*\"      { printf("%d: %s -> %s\n", yylineno, yytext, "STR_VAL"); }
+\"[^\"]*\"      { printf("%d: %s -> %s\n", yylineno, yytext, "STR_VAL"); }
 
 
 %%
