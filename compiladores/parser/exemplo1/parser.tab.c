@@ -366,7 +366,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   6
+#define YYLAST   5
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  6
@@ -422,7 +422,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    10,    10,    11,    11
+       0,    11,    11,    12,    12
 };
 #endif
 
@@ -459,7 +459,7 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -1,    -5,     3,    -4,    -5,    -1,    -5,     0
+      -1,    -5,     3,    -4,    -5,    -1,    -5,    -5
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -473,7 +473,7 @@ static const yytype_uint8 yydefact[] =
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -5,    -5,     1
+      -5,    -5,     0
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
@@ -487,12 +487,12 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-       5,     6,     1,     4,     5,     0,     7
+       5,     6,     1,     4,     0,     7
 };
 
 static const yytype_int8 yycheck[] =
 {
-       4,     5,     3,     0,     4,    -1,     5
+       4,     5,     3,     0,    -1,     5
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -1416,7 +1416,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 12 "parser.y" /* yacc.c:1906  */
+#line 13 "parser.y" /* yacc.c:1906  */
 
 int yylex(void) {
     int c = getchar();

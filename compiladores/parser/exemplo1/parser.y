@@ -6,6 +6,7 @@
     void yyerror(char const *s);
 %}
 %token DIGIT PLUS ENTER
+%left PLUS
 %%
 line: expr ENTER ;
 expr: expr PLUS expr | DIGIT ;
